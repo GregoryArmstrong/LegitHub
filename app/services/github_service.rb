@@ -15,24 +15,15 @@ class GithubService
   end
 
   def followers
-    parse(connection.get do |req|
-      req.url "users/#{@user.nickname}/followers"
-      req.headers["Authorization"] = "token #{@user.token}"
-    end)
+    parse(connection_settings("users/#{@user.nickname}/followers"))
   end
 
   def following
-    parse(connection.get do |req|
-      req.url "users/#{@user.nickname}/following"
-      req.headers["Authorization"] = "token #{@user.token}"
-    end)
+    parse(connection_settings("users/#{@user.nickname}/following"))
   end
 
   def starred
-    parse(connection.get do |req|
-      req.url "users/#{@user.nickname}/starred"
-      req.headers["Authorization"] = "token #{@user.token}"
-    end)
+    parse(connection_settings("users/#{@user.nickname}/starred"))
   end
 
   def recent_commits(user)
@@ -48,23 +39,24 @@ class GithubService
   end
 
   def organizations(user)
-    parse(connection.get do |req|
-      req.url "users/#{user}/orgs"
-      req.headers["Authorization"] = "token #{@user.token}"
-    end)
+    parse(connection_settings("users/#{user}/orgs"))
   end
 
   def repositories(user)
-    parse(connection.get do |req|
-      req.url "users/#{user}/repos"
-      req.headers["Authorization"] = "token #{@user.token}"
-    end)
+    parse(connection_settings("users/#{user}/repos"))
   end
 
   private
 
   def parse(response)
     JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def connection_settings(path)
+    connection.get do |req|
+      req.url path
+      req.headers["Authorization"] = "token #{@user.token}"
+    end
   end
 
 end
