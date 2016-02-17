@@ -13,12 +13,17 @@
     <h3>Longest Streak: <%= @presenter.longest_streak %></h3>
     <h3>Current Streak: <%= @presenter.current_streak %></h3>
     <div class="container-fluid">
-    <h3>Recent Commits:</h3>
+      <h3>Recent Commits:</h3>
       <ul class="collection">
-        <%= render partial: "commits_item", collection: (@presenter.recent_commits), as: :commit %>
+        <%= render partial: "commits_item", collection: (@presenter.recent_commits(@current_user)), as: :commit %>
       </ul>
     </div>
-    <h3>Follower Commits: <%= @presenter.follower_commits %></h3>
+    <div class="container-fluid">
+      <h3>Following Commits:</h3>
+      <ul class="collection">
+        <%= render partial: "following_commits_item", collection: (@presenter.following_commits), as: :commit %>
+      </ul>
+    </div>
   </div>
   <div class="col-md-2"></div>
 </div>

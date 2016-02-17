@@ -1,0 +1,1 @@
+<li class="collection-item">User: <%= link_to commit[:actor][:login], "https://github.com/#{commit[:actor][:login]}" %>, Commit: <%= link_to commit[:payload][:commits].first[:message], "https://github.com/#{commit[:repo][:name]}/commit/#{commit[:payload][:commits].first[:sha]}" %></li>

@@ -45,18 +45,32 @@ class Presenter
     page.xpath('//*[@id="contributions-calendar"]/div[5]/span[2]').text
   end
 
-  def recent_commits
+  def recent_commits(user)
     events = []
-    service.recent_commits(@current_user).each do |event|
-      if (event[:type] == "PushEvent") && (event[:payload][:commits].first[:author][:name] == @current_user.nickname)
+    service.recent_commits(user.nickname).each do |event|
+      if (event[:type] == "PushEvent") && (event[:payload][:commits].first[:author][:name] == user.nickname)
         events << build_object(event)
       end
     end
     events
   end
 
-  def follower_commits
-    service.follower_commits
+  def following_commits
+    events = []
+    service.following_commits.each do |person|
+      counter = 0
+      service.recent_commits(person).each do |event|
+        if (event[:type] == "PushEvent") && (event[:payload][:commits].first[:author][:name] == person)
+          events << build_object(event)
+          counter += 1
+          if counter == 5
+            counter = 0
+            break
+          end
+        end
+      end
+    end
+    events
   end
 
   private

@@ -37,16 +37,14 @@ class GithubService
 
   def recent_commits(user)
     parse(connection.get do |req|
-      req.url "users/#{user.nickname}/events"
+      req.url "users/#{user}/events"
       req.headers["Authorization"] = "token #{@user.token}"
       req.params['per_page'] = 100
     end)
   end
 
-  def follower_commits
-    list = followers.map { |person| person[:login] }
-
-    # parse(connection.get do |req|)
+  def following_commits
+    list = following.map { |person| person[:login] }
   end
 
   private
