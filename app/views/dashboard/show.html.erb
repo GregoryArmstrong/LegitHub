@@ -24,6 +24,18 @@
         <%= render partial: "following_commits_item", collection: (@presenter.following_commits), as: :commit %>
       </ul>
     </div>
+    <div class="container-fluid">
+      <h3>Organizations:</h3>
+      <ul class="collection">
+        <%= render partial: "organizations_item", collection: (@presenter.organizations(@current_user.nickname)), as: :organization %>
+      </ul>
+    </div>
+    <div class="container-fluid">
+      <h3>Repositories:</h3>
+      <ul class="collection">
+        <%= render partial: "repositories_item", collection: (@presenter.repositories(@current_user.nickname)), as: :repository %>
+      </ul>
+    </div>
   </div>
   <div class="col-md-2"></div>
 </div>

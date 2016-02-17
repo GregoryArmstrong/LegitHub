@@ -73,6 +73,18 @@ class Presenter
     events
   end
 
+  def organizations(user)
+    service.organizations(user).each do |org|
+      build_object(org)
+    end
+  end
+
+  def repositories(user)
+    service.repositories(user).each do |repo|
+      build_object(repo)
+    end
+  end
+
   private
 
   def build_object(data)

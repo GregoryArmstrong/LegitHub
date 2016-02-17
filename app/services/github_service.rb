@@ -47,6 +47,20 @@ class GithubService
     list = following.map { |person| person[:login] }
   end
 
+  def organizations(user)
+    parse(connection.get do |req|
+      req.url "users/#{user}/orgs"
+      req.headers["Authorization"] = "token #{@user.token}"
+    end)
+  end
+
+  def repositories(user)
+    parse(connection.get do |req|
+      req.url "users/#{user}/repos"
+      req.headers["Authorization"] = "token #{@user.token}"
+    end)
+  end
+
   private
 
   def parse(response)
