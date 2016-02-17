@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+body {
+  background-color: #2B4E72;
+  background-size: cover;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+h1, h2 {
+  color: #94BA65;
+}
+
+.btn {
+  background-color: #2790B0;
+}
+
+.homepage-content {
+  padding-top: 125px;
+}
