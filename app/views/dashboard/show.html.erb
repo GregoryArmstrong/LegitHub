@@ -6,6 +6,19 @@
     <h2><%= current_user.nickname %></h2>
     <h2><%= current_user.email %></h2>
     <%= link_to "Logout", "/logout", class: "btn", method: :delete %>
+    <h3>Followers: <%= @presenter.followers.count %></h3>
+    <h3>Following: <%= @presenter.following.count %></h3>
+    <h3>Starred Repositories: <%= @presenter.starred.count %></h3>
+    <h3>Yearly Commits: <%= @presenter.year_commits %></h3>
+    <h3>Longest Streak: <%= @presenter.longest_streak %></h3>
+    <h3>Current Streak: <%= @presenter.current_streak %></h3>
+    <div class="container-fluid">
+    <h3>Recent Commits:</h3>
+      <ul class="collection">
+        <%= render partial: "commits_item", collection: (@presenter.recent_commits), as: :commit %>
+      </ul>
+    </div>
+    <h3>Follower Commits: <%= @presenter.follower_commits %></h3>
   </div>
   <div class="col-md-2"></div>
 </div>
