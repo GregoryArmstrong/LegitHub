@@ -1,11 +1,29 @@
-<div class="container-fluid">
+<div class="container-fluid center-align">
   <div class="col-md-2"></div>
   <div class="col-md-8">
     <h1>You Are Authorized</h1>
-    <%= image_tag current_user.image_url, class: "img-circle img-thumbnail" %>
+    <%= image_tag current_user.image_url, class: "circle responsive-img" %>
     <h2><%= current_user.nickname %></h2>
     <h2><%= current_user.email %></h2>
-    <%= link_to "Logout", "/logout", method: :delete %>
+    <%= link_to "Logout", "/logout", class: "btn", method: :delete %>
+    <h3>Followers: <%= @presenter.followers.count %></h3>
+    <h3>Following: <%= @presenter.following.count %></h3>
+    <h3>Starred Repositories: <%= @presenter.starred.count %></h3>
+    <h3>Yearly Commits: <%= @presenter.year_commits %></h3>
+    <h3>Longest Streak: <%= @presenter.longest_streak %></h3>
+    <h3>Current Streak: <%= @presenter.current_streak %></h3>
+    <div class="container-fluid">
+      <h3>Recent Commits:</h3>
+      <ul class="collection">
+        <%= render partial: "commits_item", collection: (@presenter.recent_commits(@current_user)), as: :commit %>
+      </ul>
+    </div>
+    <div class="container-fluid">
+      <h3>Following Commits:</h3>
+      <ul class="collection">
+        <%= render partial: "following_commits_item", collection: (@presenter.following_commits), as: :commit %>
+      </ul>
+    </div>
   </div>
   <div class="col-md-2"></div>
 </div>

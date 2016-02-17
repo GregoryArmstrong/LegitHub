@@ -13,6 +13,7 @@ gem 'pry'
 gem 'figaro'
 gem 'omniauth-github'
 gem 'unicorn'
+gem 'nokogiri'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -25,6 +26,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'faraday'
 end
 
 group :development do
