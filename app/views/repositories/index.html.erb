@@ -1,6 +1,6 @@
 <div class="container-fluid center-align">
-  <h3>Repositories:</h3>
-  <ul class="collection">
+  <h3 id="repositories_header" style="display:none;">Repositories:</h3>
+  <ul class="collection" id="repositories_list" style="display:none;">
     <%= render partial: "repositories_item", collection: (@presenter.repositories(@current_user.nickname)), as: :repository %>
   </ul>
 </div>

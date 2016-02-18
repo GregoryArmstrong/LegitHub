@@ -1,12 +1,12 @@
 <div class="container-fluid center-align">
-  <h3>Recent Commits:</h3>
-  <ul class="collection">
+  <h3 id="my_commits_header" style="display:none;">Recent Commits:</h3>
+  <ul class="collection" id="my_commits_list" style="display:none;">
     <%= render partial: "commits_item", collection: (@presenter.recent_commits(@current_user)), as: :commit %>
   </ul>
 </div>
 <div class="container-fluid center-align">
-  <h3>Following Commits:</h3>
-  <ul class="collection">
+  <h3 id="follower_commits_header" style="display:none;">Following Commits:</h3>
+  <ul class="collection" id="follower_commits_list" style="display:none;">
     <%= render partial: "following_commits_item", collection: (@presenter.following_commits), as: :commit %>
   </ul>
 </div>
