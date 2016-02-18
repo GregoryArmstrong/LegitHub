@@ -60,10 +60,10 @@ class Presenter
     service.following_commits.each do |person|
       counter = 0
       service.recent_commits(person).each do |event|
-        if (event[:type] == "PushEvent") && (event[:payload][:commits].first[:author][:name] == person)
+        if (event[:type] == "PushEvent") && (event[:actor][:login] == person )
           events << build_object(event)
           counter += 1
-          if counter == 5
+          if counter == 3
             counter = 0
             break
           end

@@ -1,1 +1,1 @@
-<li class="collection-item"><%= link_to commit[:payload][:commits].first[:message], "https://github.com/#{commit[:repo][:name]}/commit/#{commit[:payload][:commits].first[:sha]}" %></li>
+<li class="collection-item">Commit: <%= link_to commit[:payload][:commits].first[:message], "https://github.com/#{commit[:repo][:name]}/commit/#{commit[:payload][:commits].first[:sha]}" %></li>

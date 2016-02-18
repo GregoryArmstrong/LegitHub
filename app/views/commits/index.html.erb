@@ -1,10 +1,10 @@
-<div class="container-fluid">
+<div class="container-fluid center-align">
   <h3>Recent Commits:</h3>
   <ul class="collection">
     <%= render partial: "commits_item", collection: (@presenter.recent_commits(@current_user)), as: :commit %>
   </ul>
 </div>
-<div class="container-fluid">
+<div class="container-fluid center-align">
   <h3>Following Commits:</h3>
   <ul class="collection">
     <%= render partial: "following_commits_item", collection: (@presenter.following_commits), as: :commit %>
