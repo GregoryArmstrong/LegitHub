@@ -5,14 +5,12 @@ RSpec.feature "GuestCanLogInWithGithubOauths" do
     VCR.use_cassette("github_service#login") do
 
     visit root_path
-
     expect(page).to have_content("Welcome to LegitHub")
 
     click_on("Login with Github")
-    visit dashboard_path
 
     expect(current_path).to eq dashboard_path
-    
+
     end
   end
 end
