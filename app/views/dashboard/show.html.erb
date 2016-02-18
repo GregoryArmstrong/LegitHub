@@ -12,30 +12,11 @@
     <h3>Yearly Commits: <%= @presenter.year_commits %></h3>
     <h3>Longest Streak: <%= @presenter.longest_streak %></h3>
     <h3>Current Streak: <%= @presenter.current_streak %></h3>
-    <div class="container-fluid">
-      <h3>Recent Commits:</h3>
-      <ul class="collection">
-        <%= render partial: "commits_item", collection: (@presenter.recent_commits(@current_user)), as: :commit %>
-      </ul>
-    </div>
-    <div class="container-fluid">
-      <h3>Following Commits:</h3>
-      <ul class="collection">
-        <%= render partial: "following_commits_item", collection: (@presenter.following_commits), as: :commit %>
-      </ul>
-    </div>
-    <div class="container-fluid">
-      <h3>Organizations:</h3>
-      <ul class="collection">
-        <%= render partial: "organizations_item", collection: (@presenter.organizations(@current_user.nickname)), as: :organization %>
-      </ul>
-    </div>
-    <div class="container-fluid">
-      <h3>Repositories:</h3>
-      <ul class="collection">
-        <%= render partial: "repositories_item", collection: (@presenter.repositories(@current_user.nickname)), as: :repository %>
-      </ul>
-    </div>
+
+    <%= link_to "Commits", commits_path, class: "btn" %>
+    <%= link_to "Repositories", repositories_path, class: "btn" %>
+    <%= link_to "Organizations", organizations_path, class: "btn" %>
+
   </div>
   <div class="col-md-2"></div>
 </div>
