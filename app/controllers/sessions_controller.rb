@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  before_action :set_mock
+
   def create
     user = User.find_or_create_by_auth(request.env["omniauth.auth"])
 
@@ -14,6 +16,12 @@ class SessionsController < ApplicationController
   def destroy
     session.clear
     redirect_to root_path
+  end
+
+  private
+
+  def set_mock
+    request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:github]
   end
 
 end

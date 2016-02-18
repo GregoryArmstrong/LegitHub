@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#show'
   get '/auth/:provider/callback', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+
   resources :commits, only: [:index]
   resources :repositories, only: [:index]
   resources :organizations, only: [:index]

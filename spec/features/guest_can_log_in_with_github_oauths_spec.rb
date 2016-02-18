@@ -2,14 +2,17 @@ require 'rails_helper'
 
 RSpec.feature "GuestCanLogInWithGithubOauths" do
   scenario "successfully redirects to dashboard path with github oauth login" do
-    skip
+    VCR.use_cassette("github_service#login") do
+
     visit root_path
 
     expect(page).to have_content("Welcome to LegitHub")
-    expect(page).to have_content("Login with Github")
 
-    click_link("Login with Github")
+    click_on("Login with Github")
+    visit dashboard_path
 
     expect(current_path).to eq dashboard_path
+    
+    end
   end
 end
