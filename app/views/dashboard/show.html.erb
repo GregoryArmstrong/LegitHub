@@ -1,30 +1,20 @@
 <div class="container-fluid center-align">
   <div class="col md2"></div>
   <div class="col md8">
-    <h1>You Are Authorized</h1>
-    <%= image_tag current_user.image_url, class: "circle responsive-img" %>
-    <h2><%= current_user.nickname %></h2>
-    <h2><%= current_user.email %></h2>
+    <h1 id="profile_header" style="display:none;">You Are Authorized</h1>
+    <%= image_tag current_user.image_url, class: "circle responsive-img", id: "profile_picture", style: "display:none;" %>
+    <div id="profile_information" style="display:none;">
+      <h2><%= current_user.nickname %></h2>
+      <h2><%= current_user.email %></h2>
+    </div>
+  </div>
     <div class="col md2"></div>
-    <!-- <div class="row">
-      <div class="fixed-action-btn horizontal">
-        <a class="btn-floating btn-large red">
-          <i class="large material-icons">mode_edit</i>
-        </a>
-        <ul>
-          <li><a class="btn-floating red"><i class="material-icons">not_interested</i></a></li>
-          <li><a class="btn-floating yellow"><i class="material-icons">view_list</i></a></li>
-          <li><a class="btn-floating green"><i class="material-icons">input</i></a></li>
-          <li><a class="btn-floating blue"><i class="material-icons">business</i></a></li>
-        </ul>
-      </div>
-    </div> -->
-    <div class="row">
+    <div class="row" id="profile_logout" style="display:none;">
       <div class="col s12">
         <%= link_to "Logout", "/logout", class: "btn", method: :delete %>
       </div>
     </div>
-    <div class="row">
+    <div class="row" id="profile_pages_buttons" style="display:none;">
       <div class="col s4">
         <%= link_to "Repositories", repositories_path, class: "btn" %>
       </div>
@@ -35,7 +25,7 @@
         <%= link_to "Organizations", organizations_path, class: "btn" %>
       </div>
     </div>
-    <div class="row">
+    <div class="row" id="profile_follows" style="display:none;">
       <div class="col s4">
         <h3>Starred Repositories: <%= @presenter.starred.count %></h3>
       </div>
@@ -46,7 +36,7 @@
         <h3>Following: <%= @presenter.following.count %></h3>
       </div>
     </div>
-    <div class="row">
+    <div class="row" id="profile_commits" style="display:none;">
       <div class="col s4">
         <h3>Yearly Commits: <%= @presenter.year_commits %></h3>
       </div>

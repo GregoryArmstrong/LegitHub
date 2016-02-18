@@ -1,8 +1,8 @@
 <div class="container-fluid center-align homepage-content">
   <div class="col-md-2"></div>
   <div class="col-md-8">
-    <h1>Welcome to LegitHub</h1>
-    <%= link_to "Login with Github", "/auth/github", class: "btn" %>
+    <h1 id="welcome_message" style="display:none;">Welcome to LegitHub</h1>
+    <%= link_to "Login with Github", "/auth/github", class: "btn", id: "welcome_button", style: "display:none;" %>
   </div>
   <div class="col-md-2"></div>
 </div>
