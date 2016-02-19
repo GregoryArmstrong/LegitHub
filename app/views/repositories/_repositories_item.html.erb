@@ -1,3 +1,5 @@
-<li class="collection-item">
-  <%= link_to repository[:name], "https://github.com/#{repository[:full_name]}" %>
+<li class="collection-item" id="<%= repository[:full_name] %>">
+  Repository: <%= link_to repository[:name], "https://github.com/#{repository[:full_name]}" %>
+  <br>
+  <%= link_to "Pull Requests", {controller: "pull_requests", action: "index", repository_owner: "#{repository[:owner][:login]}", repository_name: "#{repository[:name]}"} %>
 </li>

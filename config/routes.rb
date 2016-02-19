@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :commits, only: [:index]
   resources :repositories, only: [:index]
   resources :organizations, only: [:index]
+  resources :pull_requests, only: [:index]
 
 end
