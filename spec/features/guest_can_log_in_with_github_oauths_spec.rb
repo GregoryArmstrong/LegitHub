@@ -12,6 +12,9 @@ RSpec.feature "GuestCanLogInWithGithubOauths" do
 
     expect(current_path).to eq dashboard_path
 
+    click_on("Logout")
+    
+    expect(current_path).to eq root_path
     end
   end
 end

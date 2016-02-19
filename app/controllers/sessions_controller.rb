@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  before_action :set_mock if Rails.env.testing?
+  before_action :set_mock if Rails.env.test?
 
   def create
     user = User.find_or_create_by_auth(request.env["omniauth.auth"])
