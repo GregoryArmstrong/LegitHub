@@ -85,6 +85,12 @@ class Presenter
     end
   end
 
+  def pull_requests(user, repo)
+    service.pull_requests(user, repo) do |pr|
+      build_object(pr)
+    end
+  end
+
   private
 
   def build_object(data)

@@ -44,6 +44,11 @@ class GithubService
 
   def repositories(user)
     parse(connection_settings("users/#{user}/repos"))
+
+  end
+
+  def pull_requests(user, repo)
+    parse(connection_settings("repos/#{user}/#{repo}/pulls"))
   end
 
   private
