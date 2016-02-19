@@ -42,3 +42,58 @@ h1, h2, h3 {
   height: 200px;
   width: 200px;
 }
+
+#bottom_right_image {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0;
+}
+
+#top_left_image {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  opacity: 0;
+}
+
+#top_image {
+  position: fixed;
+  top: -15px;
+  left: 0px;
+  opacity: 0;
+}
+
+#bottom_image {
+  position: fixed;
+  bottom: -5px;
+  left: 0px;
+  opacity: 0;
+}
+
+#repositories_list {
+  width: 33%;
+  margin: auto;
+}
+
+#my_commits_list {
+  width: 45%;
+  margin: auto;
+}
+
+#follower_commits_list {
+  width: 45%;
+  margin: auto;
+}
+
+#organizations_list {
+  width: 33%;
+  margin: auto;
+}
+
+#dashboard_link {
+  position: fixed;
+  right: 1%;
+  top: 2%;
+  opacity: 0;
+}

@@ -1,20 +1,21 @@
 <div class="container-fluid center-align">
+  <img src="assets/legit_hub_top.png" id="top_image"/>
   <div class="col md2"></div>
   <div class="col md8">
-    <h1 id="profile_header" style="display:none;">You Are Authorized</h1>
-    <%= image_tag current_user.image_url, class: "circle responsive-img", id: "profile_picture", style: "display:none;" %>
-    <div id="profile_information" style="display:none;">
+    <h1 id="profile_header" style="opacity:0;">You Are Authorized</h1>
+    <%= image_tag current_user.image_url, class: "circle responsive-img", id: "profile_picture", style: "opacity:0;" %>
+    <div id="profile_information" style="opacity:0;">
       <h2><%= current_user.nickname %></h2>
       <h2><%= current_user.email %></h2>
     </div>
   </div>
     <div class="col md2"></div>
-    <div class="row" id="profile_logout" style="display:none;">
+    <div class="row" id="profile_logout" style="opacity:0;">
       <div class="col s12">
         <%= link_to "Logout", "/logout", class: "btn", method: :delete %>
       </div>
     </div>
-    <div class="row" id="profile_pages_buttons" style="display:none;">
+    <div class="row" id="profile_pages_buttons" style="opacity:0;">
       <div class="col s4">
         <%= link_to "Repositories", repositories_path, class: "btn" %>
       </div>
@@ -25,7 +26,7 @@
         <%= link_to "Organizations", organizations_path, class: "btn" %>
       </div>
     </div>
-    <div class="row" id="profile_follows" style="display:none;">
+    <div class="row" id="profile_follows" style="opacity:0;">
       <div class="col s4">
         <h3>Starred Repositories: <%= @presenter.starred.count %></h3>
       </div>
@@ -36,7 +37,7 @@
         <h3>Following: <%= @presenter.following.count %></h3>
       </div>
     </div>
-    <div class="row" id="profile_commits" style="display:none;">
+    <div class="row" id="profile_commits" style="opacity:0;">
       <div class="col s4">
         <h3>Yearly Commits: <%= @presenter.year_commits %></h3>
       </div>
@@ -48,4 +49,5 @@
       </div>
     </div>
   </div>
+  <img src="assets/legit_hub_bottom.png" id="bottom_image"/>
 </div>
