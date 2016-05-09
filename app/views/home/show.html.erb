@@ -1,10 +1,12 @@
 <div class="container-fluid center-align homepage-content">
-  <img src="legit_hub_top_left.png" id="top_left_image"/>
+  <!-- <img src="assets/legit_hub_top_left.png" id="top_left_image"/> -->
+  <%= image_tag("legit_hub_top_left.png", id: "top_left_image") %>
   <div class="col-md-2"></div>
   <div class="col-md-8">
     <h1 id="welcome_message" style="opacity:0;">Welcome to LegitHub</h1>
     <%= link_to "Login with Github", "/auth/github", class: "btn", id: "welcome_button", style: "opacity:0;" %>
   </div>
   <div class="col-md-2"></div>
-  <img src="assets/legit_hub_bottom_right.png" id="bottom_right_image"/>
+  <!-- <img src="assets/legit_hub_bottom_right.png" id="bottom_right_image"/> -->
+  <%= image_tag("legit_hub_buttom_right.png", id: "bottom_right_image") %>
 </div>
