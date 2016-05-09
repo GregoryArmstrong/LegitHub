@@ -1,4 +1,4 @@
-<img src="assets/legit_hub_top_left.png" id="top_left_image"/>
+<%= image_tag("legit_hub_top_left.png", id: "top_left_image") %>
 <%= link_to "Dashboard", dashboard_path, id: "dashboard_link", class: "btn" %>
 <div class="container-fluid center-align">
   <h3 id="repositories_header" style="opacity:0;">Repositories:</h3>
@@ -6,4 +6,4 @@
     <%= render partial: "repositories_item", collection: (@presenter.repositories(@current_user.nickname)), as: :repository %>
   </ul>
 </div>
-<img src="assets/legit_hub_bottom_right.png" id="bottom_right_image"/>
+<%= image_tag("legit_hub_bottom_right.png", id: "bottom_right_image") %>
